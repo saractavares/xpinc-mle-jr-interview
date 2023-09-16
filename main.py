@@ -1,11 +1,14 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
+
 app = FastAPI()
+
 
 @app.get("/api/health")
 async def health_check():
-    return {"message": "Estou saudável"}
+    return {"message": "Estou saudável 1"}
+
 
 class FibonacciRequest(BaseModel):
     elementos: int
@@ -16,6 +19,7 @@ def calcular_fibonacci(n):
         next_value = fibonacci[-1] + fibonacci[-2]
         fibonacci.append(next_value)
     return fibonacci
+
 
 @app.post("/api/fibonacci", response_model=list[int])
 async def fibonacci(request: FibonacciRequest):
