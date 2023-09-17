@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/api/health")
 async def health_check():
-    return {"message": "Estou saudável 1"}
+    return {"message": "Estou saudável"}
 
 
 class FibonacciRequest(BaseModel):
